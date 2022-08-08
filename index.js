@@ -216,6 +216,7 @@ function rgb_to_hsl(red, green, blue) {
     const cmin = Math.min(red_, green_, blue_)
     const delta = cmax - cmin
     let hsl_ = {hue: 0, saturation: 0, lightness: (cmax + cmin) / 2}
+    console.log(red_,green_,blue_);
     if (delta != 0) {
         hsl_.saturation = delta / (1 - Math.abs(2*hsl_.lightness - 1))
         if (cmax == red_) {
@@ -225,6 +226,9 @@ function rgb_to_hsl(red, green, blue) {
         } else {
             hsl_.hue = 60 * (((red_ - green_) / delta) + 4)
         }
+    }
+    if (hsl_.hue < 0) {
+        hsl_.hue = 360 + hsl_.hue
     }
     hsl_ = formatHSL(hsl_)
     return hsl_
@@ -247,6 +251,9 @@ function rgb_to_hsv(red, green, blue) {
         } else {
             hsv_.hue = 60 * (((red_ - green_) / delta) + 4)
         }
+    }
+    if (hsv_.hue < 0) {
+        hsv_.hue = 360 + hsv_.hue
     }
     hsv_ = formatHSV(hsv_)
     return hsv_
