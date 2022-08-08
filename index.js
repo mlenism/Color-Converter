@@ -42,27 +42,14 @@ function converterHEX() {
 }
 
 function converterRGB() {
-    let r, g, b; r = g = b = 0;
-    rgb[0].addEventListener('input', ()=>{
-        if (rgb[0].value >= 0 && rgb[0].value <= 255) {
-            r = rgb[0].value;
-            fillValues()
-        }
-    })
-    rgb[1].addEventListener('input', ()=>{
-        if (rgb[1].value >= 0 && rgb[1].value <= 255) {
-            g = rgb[1].value
-            fillValues()
-        }
-    })
-    rgb[2].addEventListener('input', ()=>{
-        if (rgb[2].value >= 0 && rgb[2].value <= 255) {
-            b = rgb[2].value
-            fillValues()
-        }
-    })
     const fillValues = () => {
-        if (r && g && b) {
+        const valid = parseFloat(rgb[0].value) >= 0 && parseFloat(rgb[0].value) <= 255
+            && parseFloat(rgb[1].value) >= 0 && parseFloat(rgb[1].value) <= 255
+            && parseFloat(rgb[2].value) >= 0 && parseFloat(rgb[2].value) <= 255;
+        if (valid) {
+            const r = rgb[0].value
+            const g = rgb[1].value
+            const b = rgb[2].value
             const hex_ = rgb_to_hex(r, g, b)
             const hsl_ = rgb_to_hsl(r, g, b)
             const hsv_ = rgb_to_hsv(r, g, b)
@@ -81,30 +68,20 @@ function converterRGB() {
             color.style.backgroundColor = `#${hex_.hex}`;
         }
     }
+    rgb[0].addEventListener('input', fillValues)
+    rgb[1].addEventListener('input', fillValues)
+    rgb[2].addEventListener('input', fillValues)
 }
 
 function converterHSL() {
-    let h, s, l; h = s = l = 0;
-    hsl[0].addEventListener('input', ()=>{
-        if (hsl[0].value >= 0 && hsl[0].value <= 360) {
-            h = hsl[0].value;
-            fillValues()
-        }
-    })
-    hsl[1].addEventListener('input', ()=>{
-        if (hsl[1].value >= 0 && hsl[1].value <= 100) {
-            s = hsl[1].value
-            fillValues()
-        }
-    })
-    hsl[2].addEventListener('input', ()=>{
-        if (hsl[2].value >= 0 && hsl[2].value <= 100) {
-            l = hsl[2].value
-            fillValues()
-        }
-    })
     const fillValues = () => {
-        if (h && s && l) {
+        const valid = parseFloat(hsl[0].value) >= 0 && parseFloat(hsl[0].value) <= 360
+            && parseFloat(hsl[1].value) >= 0 && parseFloat(hsl[1].value) <= 100
+            && parseFloat(hsl[2].value) >= 0 && parseFloat(hsl[2].value) <= 100;
+        if (valid) {
+            const h = hsl[0].value;
+            const s = hsl[1].value;
+            const l = hsl[2].value;
             const hex_ = hsl_to_hex(h, s, l)
             const rgb_ = hsl_to_rgb(h, s, l)
             const hsv_ = hsl_to_hsv(h, s, l)
@@ -123,30 +100,20 @@ function converterHSL() {
             color.style.backgroundColor = `#${hex_.hex}`;
         }
     }
+    hsl[0].addEventListener('input', fillValues)
+    hsl[1].addEventListener('input', fillValues)
+    hsl[2].addEventListener('input', fillValues)
 }
 
 function converterHSV() {
-    let h, s, v; h = s = v = 0;
-    hsv[0].addEventListener('input', ()=>{
-        if (hsv[0].value >= 0 && hsv[0].value <= 360) {
-            h = hsv[0].value;
-            fillValues()
-        }
-    })
-    hsv[1].addEventListener('input', ()=>{
-        if (hsv[1].value >= 0 && hsv[1].value <= 100) {
-            s = hsv[1].value
-            fillValues()
-        }
-    })
-    hsv[2].addEventListener('input', ()=>{
-        if (hsv[2].value >= 0 && hsv[2].value <= 100) {
-            v = hsv[2].value
-            fillValues()
-        }
-    })
     const fillValues = () => {
-        if (h && s && v) {
+        const valid = parseFloat(hsv[0].value) >= 0 && parseFloat(hsv[0].value) <= 360
+            && parseFloat(hsv[1].value) >= 0 && parseFloat(hsv[1].value) <= 100
+            && parseFloat(hsv[2].value) >= 0 && parseFloat(hsv[2].value) <= 100;
+        if (valid) {
+            const h = hsv[0].value;
+            const s = hsv[1].value;
+            const v = hsv[2].value;
             const hex_ = hsv_to_hex(h, s, v)
             const rgb_ = hsv_to_rgb(h, s, v)
             const hsl_ = hsv_to_hsl(h, s, v)
@@ -165,36 +132,22 @@ function converterHSV() {
             color.style.backgroundColor = `#${hex_.hex}`;
         }
     }
+    hsv[0].addEventListener('input', fillValues)
+    hsv[1].addEventListener('input', fillValues)
+    hsv[2].addEventListener('input', fillValues)
 }
 
 function converterCMYK() {
-    let c, m, y, k; c = m = y = k = 0;
-    cmyk[0].addEventListener('input', ()=>{
-        if (cmyk[0].value >= 0 && cmyk[0].value <= 100) {
-            c = cmyk[0].value;
-            fillValues()
-        }
-    })
-    cmyk[1].addEventListener('input', ()=>{
-        if (cmyk[1].value >= 0 && cmyk[1].value <= 100) {
-            m = cmyk[1].value
-            fillValues()
-        }
-    })
-    cmyk[2].addEventListener('input', ()=>{
-        if (cmyk[2].value >= 0 && cmyk[2].value <= 100) {
-            y = cmyk[2].value
-            fillValues()
-        }
-    })
-    cmyk[3].addEventListener('input', ()=>{
-        if (cmyk[3].value >= 0 && cmyk[3].value <= 100) {
-            k = cmyk[3].value
-            fillValues()
-        }
-    })
     const fillValues = () => {
-        if (c && m && y && k) {
+        const valid = parseFloat(cmyk[0].value) >= 0 && parseFloat(cmyk[0].value) <= 100
+            && parseFloat(cmyk[1].value) >= 0 && parseFloat(cmyk[1].value) <= 100
+            && parseFloat(cmyk[2].value) >= 0 && parseFloat(cmyk[2].value) <= 100
+            && parseFloat(cmyk[3].value) >= 0 && parseFloat(cmyk[3].value) <= 100;
+        if (valid) {
+            const c = cmyk[0].value
+            const m = cmyk[1].value
+            const y = cmyk[2].value
+            const k = cmyk[3].value
             const hex_ = cmyk_to_hex(c, m, y, k)
             const rgb_ = cmyk_to_rgb(c, m, y, k)
             const hsl_ = cmyk_to_hsl(c, m, y, k)
@@ -212,6 +165,10 @@ function converterCMYK() {
             color.style.backgroundColor = `#${hex_.hex}`;
         }
     }
+    cmyk[0].addEventListener('input', fillValues)
+    cmyk[1].addEventListener('input', fillValues)
+    cmyk[2].addEventListener('input', fillValues)
+    cmyk[3].addEventListener('input', fillValues)
 }
 
 function hex_to_rgb(hex1, hex2, hex3) {
@@ -243,9 +200,9 @@ function hex_to_cmyk(hex1, hex2, hex3) {
 
 function rgb_to_hex(red, green, blue) {
     const hex_ = {
-        redHex: parseInt(red).toString(16).toUpperCase(),
-        greenHex: parseInt(green).toString(16).toUpperCase(),
-        blueHex: parseInt(blue).toString(16).toUpperCase()
+        redHex: ('0' + parseInt(red).toString(16).toUpperCase()).slice(-2),
+        greenHex: ('0' + parseInt(green).toString(16).toUpperCase()).slice(-2),
+        blueHex: ('0' + parseInt(blue).toString(16).toUpperCase()).slice(-2) 
     }
     hex_.hex = hex_.redHex + hex_.greenHex + hex_.blueHex
     return hex_
