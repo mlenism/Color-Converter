@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Color converter</title>
+  <style>
+    input {width: 35px;}
+  </style>
+</head>
+<body>
+  <label for="hex">HEX: #</label>
+  <input type="text" style="width: 60px; text-transform: uppercase;" id="hex" name="hex"><br><br>
+  <label for="rgb">RGB: (</label>
+  <input type="text" name="rgb">,
+  <input type="text" name="rgb">,
+  <input type="text" name="rgb"> )<br><br>
+  <label for="hsl">HSL: (</label>
+  <input type="text" name="hsl">º,
+  <input type="text" name="hsl">%,
+  <input type="text" name="hsl">% )<br><br>
+  <label for="hsv">HSV: (</label>
+  <input type="text" name="hsv">º,
+  <input type="text" name="hsv">%,
+  <input type="text" name="hsv">% )<br><br>
+  <label for="cmyk">CMYK: (</label>
+  <input type="text" name="cmyk">,
+  <input type="text" name="cmyk">,
+  <input type="text" name="cmyk">,
+  <input type="text" name="cmyk"> )<br><br>
+  <table>
+    <tr>
+      <td>Color: (</td>
+      <td id="color" width="100px"></td>
+      <td>)</td>
+    </tr>
+  </table>
+  <script src="index.js"></script>
+</body>
+</html>
